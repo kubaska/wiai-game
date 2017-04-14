@@ -24,19 +24,19 @@
             }
             .container-fluid{
                 min-width: 800px;
-                max-width: 1400px;
+                max-width: 1920px;
             }
             .side-panel{
                 background-color: grey;
                 min-height: 500px;
-                max-height: 800px;
+                max-height: 1080px;
                 height: 100vh;
                 float: left;
             }
             .main-panel{
                 background-color: lime;
                 min-height: 500px;
-                max-height: 800px;
+                max-height: 1080px;
                 height: 100vh;
                 float: left;
             }
@@ -61,29 +61,20 @@
                 height: 100%;
                 float: left;
             }
-            .controls{
+            .event-panel{
                 background-color: bisque;
                 height: 100%;
                 float: left;
             }
-            .up-arrow{
+            .event-photo{
                 background-color: chocolate;
-                height: 33%;
+                min-height: 25%;
+                height: auto;
                 float: left;
             }
-            .left-arrow{
-                background-color: brown;
-                height: 34%;
-                float: left;
-            }
-            .right-arrow{
-                background-color: cadetblue;
-                height: 34%;
-                float: left;
-            }
-            .down-arrow{
+            .event-text{
                 background-color: chartreuse;
-                height: 33%;
+                height: 75%;
                 float: left;
             }
             .skillset{
@@ -133,13 +124,11 @@
             </div>
             <div class="col-9 main-panel">
                 <div class="col map-controls-panel">
-                    <div class="col-9 map">
+                    <div class="col-10 map">
                     </div>
-                    <div class="col-3 controls">
-                        <div class="col up-arrow justify"></div>
-                        <div class="col-6 left-arrow justify"></div>
-                        <div class="col-6 right-arrow justify"></div>
-                        <div class="col down-arrow justify"></div>
+                    <div class="col-2 event-panel">
+                        <div class="col event-photo justify"></div>
+                        <div class="col event-text justify"></div>
                     </div>
                 </div>
                 <div class="col-9 skillset">
