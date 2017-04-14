@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pl">
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+
+
+		<meta charset="UTF-8"/>
+		<title></title>
+
+		<style>
+            div{
+                padding: 0 !important;
+            }
+            html,body{
+                margin: 0;
+                padding: 0;
+                max-height: 600px;
+            }
+            .container-fluid{
+                min-width: 800px;
+                max-width: 1400px;
+            }
+            .side-panel{
+                background-color: grey;
+                min-height: 500px;
+                max-height: 800px;
+                height: 100vh;
+                float: left;
+            }
+            .main-panel{
+                background-color: lime;
+                min-height: 500px;
+                max-height: 800px;
+                height: 100vh;
+                float: left;
+            }
+            .profession{
+                background-color: aqua;
+                height: 40%;
+            }
+            .stats{
+                background-color: green;
+                height: 40%;
+            }
+            .inventory{
+                background-color: blue;
+                height: 20%;
+            }
+            .map-controls-panel{
+                background-color: greenyellow;
+                height: 65%;
+            }
+            .map{
+                background-color: beige;
+                height: 100%;
+                float: left;
+            }
+            .controls{
+                background-color: bisque;
+                height: 100%;
+                float: left;
+            }
+            .up-arrow{
+                background-color: chocolate;
+                height: 33%;
+                float: left;
+            }
+            .left-arrow{
+                background-color: brown;
+                height: 34%;
+                float: left;
+            }
+            .right-arrow{
+                background-color: cadetblue;
+                height: 34%;
+                float: left;
+            }
+            .down-arrow{
+                background-color: chartreuse;
+                height: 33%;
+                float: left;
+            }
+            .skillset{
+                background-color: cornflowerblue;
+                height: 10%;
+            }
+            .textarea{
+                background-color: crimson;
+                height: 25%;
+            }
+
+            .skill1{
+                background-color: darkmagenta;
+                height: 100%;
+                float: left;
+            }
+            .skill2{
+                background-color: darkorange;
+                height: 100%;
+                float: left;
+            }
+            .skill3{
+                background-color: darkcyan;
+                height: 100%;
+                float: left;
+            }
+            .skill4{
+                background-color: darkolivegreen;
+                height: 100%;
+                float: left;
+            }
+		</style>
+	</head>
+	<body>
+
+        <div class="container-fluid">
+            <div class="col-3 side-panel">
+                <div class="row profession">
+
+                </div>
+                <div class="row stats">
+
+                </div>
+                <div class="row inventory">
+
+                </div>
+            </div>
+            <div class="col-9 main-panel">
+                <div class="col map-controls-panel">
+                    <div class="col-9 map">
+                    </div>
+                    <div class="col-3 controls">
+                        <div class="col up-arrow justify"></div>
+                        <div class="col-6 left-arrow justify"></div>
+                        <div class="col-6 right-arrow justify"></div>
+                        <div class="col down-arrow justify"></div>
+                    </div>
+                </div>
+                <div class="col-9 skillset">
+                    <div class="col-3 skill1"></div>
+                    <div class="col-3 skill2"></div>
+                    <div class="col-3 skill3"></div>
+                    <div class="col-3 skill4"></div>
+                </div>
+                <div class="col textarea">
+                </div>
+            </div>
+        </div>
+
+	</body>
+</html>
