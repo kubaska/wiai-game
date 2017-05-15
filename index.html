@@ -127,12 +127,21 @@
             
             .mapa-img{
                 height: 100%;
+                float: left;
             }
-            .chara{
-                height: 48px;
-                width: 48px;
+            #player{
+                position: absolute;
+                left: 0;
+                bottom: 0;
+            }
+
+            #map{
+                background-image: url("assets/mapa.png");
+                background-size: 100%;
+                height: 100%;
                 position: absolute;
             }
+
 		</style>
 	</head>
 	<body>
@@ -152,8 +161,9 @@
             <!-- ############################### -->
             <div class="col-7 main-panel">
                     <div class="col map text-center" id="map-div">
-                        <img src="assets/mapa.png" class="mapa-img" id="map"/>
-                        <img src="assets/chara.jpg" class="chara" id="chara" />
+                        <div class="mapa-img" id="map">
+                            <img src="assets/player.jpg" id="player" />
+                        </div>
                     </div>
                     
                     <div class="col skillset">
@@ -173,7 +183,7 @@
             </div>
         </div>
 
-        
+        <script src="objects.js"></script>
         <script src="script.js"></script>
 	</body>
 </html>
