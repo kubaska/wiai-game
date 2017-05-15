@@ -70,6 +70,7 @@
             .map{
                 background-color: beige;
                 height: 65%;
+                
                 float: left;
             }
             .skillset{
@@ -121,6 +122,26 @@
                 background-color: dodgerblue;
                 float: left;
             }
+            
+            
+            
+            .mapa-img{
+                height: 100%;
+                float: left;
+            }
+            #player{
+                position: absolute;
+                left: 0;
+                bottom: 0;
+            }
+
+            #map{
+                background-image: url("assets/mapa.png");
+                background-size: 100%;
+                height: 100%;
+                position: absolute;
+            }
+
 		</style>
 	</head>
 	<body>
@@ -139,8 +160,10 @@
             </div>
             <!-- ############################### -->
             <div class="col-7 main-panel">
-                    <div class="col map">
-                        Mapa
+                    <div class="col map text-center" id="map-div">
+                        <div class="mapa-img" id="map">
+                            <img src="assets/player.jpg" id="player" />
+                        </div>
                     </div>
                     
                     <div class="col skillset">
@@ -160,5 +183,7 @@
             </div>
         </div>
 
+        <script src="objects.js"></script>
+        <script src="script.js"></script>
 	</body>
 </html>
