@@ -3,6 +3,9 @@
 	<head>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<link rel="stylesheet" href="styles/statistics.css"/>
+		
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
         <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
@@ -152,7 +155,38 @@
                     Profesja
                 </div>
                 <div class="col stats">
-                    Statystyki
+                    
+					<table>
+						<tr>    
+							<th colspan="2" class="text-center">Statystyki</th>
+							
+						</tr>
+						<tr>
+							<td>Punkty życia:</td>
+							<td id="hp"></td>
+						</tr>
+						<tr>
+							<td>Siła</td>
+							<td id="power"></td>
+						</tr>
+						<tr>
+							<td>Atak</td>
+							<td id="attack"></td>
+						</tr>
+						<tr>
+							<td>Wytrzymałość</td>
+							<td id="strength"></td>
+						</tr>
+						<tr>
+							<td>Skill</td>
+							<td id="skill"></td>
+						</tr>
+						<tr>
+							<td>Pancerz</td>
+							<td id="armor"></td>
+						</tr>
+					</table>
+					
                 </div>
                 <div class="col inventory">
                     Ekwipunek
@@ -185,5 +219,6 @@
 
         <script src="objects.js"></script>
         <script src="script.js"></script>
+        <script src="player-statistics.js"></script>
 	</body>
 </html>
