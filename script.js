@@ -1,18 +1,22 @@
-window.onload = windowLoad => {
+function update() {
     map.set();
     map.center();
+    
     player.set();
     player.getPos(player.css);
+    minimap.set();
+}
+
+window.onload = windowLoad => {
+    minimap.create();
+    update();
 }
 
 window.onresize = windowSize => {
     map.resize();
     player.resize();
     
-    map.set();
-    map.center();
-    player.set();
-    player.getPos(player.css);
+    update();
 }
 
 document.addEventListener('keyup', e => { player.move(e) });

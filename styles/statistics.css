@@ -1,0 +1,27 @@
+.stats
+{
+	text-align: center;
+
+}
+table, tr, td
+{
+	border: 1px solid black;
+	font-size: 15px;
+	
+}
+table, tr
+{
+	width: 100%;
+}
+td
+{
+	width: 50%;
+}
+th
+{
+	font-size: 25px;
+}
+table
+{
+	height: 100%;
+}
