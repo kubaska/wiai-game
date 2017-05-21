@@ -139,3 +139,10 @@ var player = {
         minimap.set();
     }
 }
+
+var characterList = {
+    paladin: document.querySelector('#class1'),
+    soldier: document.querySelector('#class2'),
+    archer: document.querySelector('#class3'),
+    necromant: document.querySelector('#class4')
+}

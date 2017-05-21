@@ -71,7 +71,7 @@
             /* ############################### */
             
             .map{
-                background-color: beige;
+                background-color: black;
                 height: 65%;
                 
                 float: left;
@@ -131,6 +131,7 @@
             .mapa-img{
                 height: 100%;
                 float: left;
+                display: none;
             }
             #player{
                 position: absolute;
@@ -155,6 +156,39 @@
                 text-align: center;
             }
 
+            
+            .selector{
+                height: 100%;
+                display: block;
+            }
+            .class{
+                width: 25%;
+                height: 100%;
+                float: left;
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+            }
+            .class:hover{
+                opacity: 1;
+            }
+            .class1{
+                background-image: url(assets/paladyn.png);
+            }
+            .class2{
+                background-image: url(assets/soldier.png);
+            }
+            .class3{
+                background-image: url(assets/archer_g.gif);
+            }
+            .class4{
+                background-image: url(assets/doc.jpg);
+            }
+            .item-fade{
+                opacity: 0.25;
+                transition: opacity 0.3s;
+                -webkit-transition: opacity 0.3s;
+            }
 		</style>
 	</head>
 	<body>
@@ -205,6 +239,13 @@
             <!-- ############################### -->
             <div class="col-7 main-panel">
                     <div class="col map text-center" id="map-div">
+                        <div class="col text-center selector" id="selector">
+                            <div class="col text-center class item-fade class1" id="class1"></div>
+                            <div class="col text-center class class2 item-fade" id="class2"></div>
+                            <div class="col text-center class class3 item-fade" id="class3"></div>
+                            <div class="col text-center class class4 item-fade" id="class4"></div>
+                        </div>
+                        
                         <div class="mapa-img" id="map">
                             <img src="assets/player.jpg" id="player" />
                         </div>
@@ -230,5 +271,7 @@
         <script src="objects.js"></script>
         <script src="script.js"></script>
         <script src="player-statistics.js"></script>
+        <script src="events.js"></script>
+        <script src="characterSelect.js"></script>
 	</body>
 </html>

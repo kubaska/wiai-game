@@ -16,3 +16,5 @@ function dice() { return Math.floor(Math.random() * events.length); }
 
 // Użycie konkretnego eventu:
 // events[NAZWA_EVENTU].call();
+
+console.log(events.find(() => { return /orkEvent\d/g; }));
