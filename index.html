@@ -4,6 +4,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		
+		<link rel="stylesheet" href="styles/main.css"/>
 		<link rel="stylesheet" href="styles/statistics.css"/>
 		
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
@@ -15,181 +16,6 @@
 
 		<meta charset="UTF-8"/>
 		<title></title>
-
-		<style>
-            div{
-                padding: 0 !important;
-            }
-            html,body{
-                margin: 0;
-                padding: 0;
-                max-height: 600px;
-                color: black;
-                -webkit-font-smoothing: antialiased;
-            }
-            .container-fluid{
-                min-width: 800px;
-                max-width: 1920px;
-            }
-            .side-panel{
-                background-color: grey;
-                min-height: 500px;
-                max-height: 1080px;
-                height: 100vh;
-                float: left;
-            }
-            .main-panel{
-                background-color: lime;
-                min-height: 500px;
-                max-height: 1080px;
-                height: 100vh;
-                float: left;
-            }
-            .event-panel{
-                background-color: bisque;
-                min-height: 500px;
-                max-height: 1080px;
-                height: 100vh;
-                float: left;
-            }
-            
-            /* ############################### */
-            
-            .profession{
-                background-color: aqua;
-                height: 40%;
-            }
-            .stats{
-                background-color: green;
-                height: 40%;
-            }
-            .inventory{
-                background-color: blue;
-                height: 20%;
-            }
-            
-            /* ############################### */
-            
-            .map{
-                background-color: black;
-                height: 65%;
-                
-                float: left;
-            }
-            .skillset{
-                background-color: cornflowerblue;
-                height: 10%;
-                float: left;
-            }
-            .textarea{
-                background-color: crimson;
-                height: 25%;
-                float: left;
-            }
-
-            .skill1{
-                background-color: darkmagenta;
-                height: 100%;
-                float: left;
-            }
-            .skill2{
-                background-color: darkorange;
-                height: 100%;
-                float: left;
-            }
-            .skill3{
-                background-color: darkcyan;
-                height: 100%;
-                float: left;
-            }
-            .skill4{
-                background-color: darkolivegreen;
-                height: 100%;
-                float: left;
-            }
-            
-            /* ############################### */
-            
-            .event-photo{
-                background-color: chocolate;
-                height: 20%;
-                float: left;
-            }
-            .event-text{
-                background-color: chartreuse;
-                height: 45%;
-                float: left;
-            }
-            .minimap{
-                height: 35%;
-                background-color: dodgerblue;
-                float: left;
-            }
-            
-            
-            
-            .mapa-img{
-                height: 100%;
-                float: left;
-                display: none;
-            }
-            #player{
-                position: absolute;
-                left: 0;
-                bottom: 0;
-            }
-
-            #map{
-                background-image: url("assets/mapa.png");
-                background-size: 100%;
-                height: 100%;
-                position: absolute;
-            }
-
-            #minimapTable{
-                height: 100%;
-                width: 100%;
-            }
-
-            #minimapTable td{
-                width: 10%;
-                text-align: center;
-            }
-
-            
-            .selector{
-                height: 100%;
-                display: block;
-            }
-            .class{
-                width: 25%;
-                height: 100%;
-                float: left;
-                background-size: cover;
-                background-position: center;
-                background-repeat: no-repeat;
-            }
-            .class:hover{
-                opacity: 1;
-            }
-            .class1{
-                background-image: url(assets/paladyn.png);
-            }
-            .class2{
-                background-image: url(assets/soldier.png);
-            }
-            .class3{
-                background-image: url(assets/archer_g.gif);
-            }
-            .class4{
-                background-image: url(assets/doc.jpg);
-            }
-            .item-fade{
-                opacity: 0.25;
-                transition: opacity 0.3s;
-                -webkit-transition: opacity 0.3s;
-            }
-		</style>
 	</head>
 	<body>
 
@@ -211,7 +37,7 @@
 						</tr>
 						<tr>
 							<td>Siła</td>
-							<td id="power"></td>
+							<td id="strength"></td>
 						</tr>
 						<tr>
 							<td>Atak</td>
@@ -219,7 +45,7 @@
 						</tr>
 						<tr>
 							<td>Wytrzymałość</td>
-							<td id="strength"></td>
+							<td id="resistance"></td>
 						</tr>
 						<tr>
 							<td>Skill</td>
@@ -233,7 +59,15 @@
 					
                 </div>
                 <div class="col inventory">
-                    Ekwipunek
+                    <div class="col item item1"></div>
+                    <div class="col item item2"></div>
+                    <div class="col item item3"></div>
+                    <div class="col item item4"></div>
+                    <div class="col item item5"></div>
+                    <div class="col item item6"></div>
+                    <div class="col item item7"></div>
+                    <div class="col item item8"></div>
+                    <div class="col item item9"></div>
                 </div>
             </div>
             <!-- ############################### -->
@@ -268,10 +102,9 @@
             </div>
         </div>
 
-        <script src="objects.js"></script>
-        <script src="script.js"></script>
-        <script src="player-statistics.js"></script>
+        <script src="helpers.js"></script>
         <script src="events.js"></script>
-        <script src="characterSelect.js"></script>
+        
+        <script src="loader.js"></script>
 	</body>
 </html>

@@ -59,6 +59,13 @@ var minimap = {
 }
 
 var player = {
+    hp: 0,
+    strength: 0,
+    attack: 0,
+    resistance: 0,
+    skill: 0,
+    armor: 0,
+    // ...
     css: document.querySelector('#player'),
     edge: map_div.offsetHeight/10,
     currentLeft: null,
@@ -145,4 +152,32 @@ var characterList = {
     soldier: document.querySelector('#class2'),
     archer: document.querySelector('#class3'),
     necromant: document.querySelector('#class4')
+}
+
+var editStats = {
+    hp: document.querySelector('#hp'),
+	strength: document.querySelector("#strength"),
+	attack: document.querySelector("#attack"),
+	resistance: document.querySelector("#resistance"),
+	skill: document.querySelector("#skill"),
+	armor: document.querySelector("#armor")
+}
+
+function setPlayerAttrib(champion){
+    document.getElementById("selector").style.display = "none";
+    document.getElementById("map").style.display = "block";
+    console.log("1");
+    // Funkcja ustawia statystyki każdej z postaci
+    // ...
+    // Do ustalenia statystyk...
+    switch (champion){
+        case "paladin":
+            editStats.hp.innerHTML = basePaladin.hp();
+            editStats.strength.innerHTML = basePaladin.strength;
+            editStats.attack.innerHTML = basePaladin.attack();
+            editStats.resistance.innerHTML = basePaladin.dexterity;
+            editStats.skill.innerHTML = basePaladin.mana();
+            editStats.armor.innerHTML = basePaladin.hp();
+    }
+    // TODO
 }

@@ -20,3 +20,13 @@ window.onresize = windowSize => {
 }
 
 document.addEventListener('keyup', e => { player.move(e) });
+
+
+
+
+characterList.paladin.onclick = () => { setPlayerAttrib("paladin"); }
+characterList.soldier.onclick = () => { setPlayerAttrib("soldier"); }
+characterList.archer.onclick = () => { setPlayerAttrib("archer"); }
+characterList.necromant.onclick = () => { setPlayerAttrib("necromant"); }
+
+

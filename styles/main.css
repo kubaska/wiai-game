@@ -1,0 +1,182 @@
+            div{
+                padding: 0 !important;
+            }
+            html,body{
+                margin: 0;
+                padding: 0;
+                max-height: 600px;
+                color: black;
+                -webkit-font-smoothing: antialiased;
+            }
+            .container-fluid{
+                min-width: 800px;
+                max-width: 1920px;
+            }
+            .side-panel{
+                background-color: grey;
+                min-height: 500px;
+                max-height: 1080px;
+                height: 100vh;
+                float: left;
+            }
+            .main-panel{
+                background-color: lime;
+                min-height: 500px;
+                max-height: 1080px;
+                height: 100vh;
+                float: left;
+            }
+            .event-panel{
+                background-color: bisque;
+                min-height: 500px;
+                max-height: 1080px;
+                height: 100vh;
+                float: left;
+            }
+            
+            /* ############################### */
+            
+            .profession{
+                background-color: aqua;
+                height: 20%;
+            }
+            .stats{
+                background-color: green;
+                height: 50%;
+            }
+            .inventory{
+                background-color: blue;
+                width: 100%;
+                height: 30%;
+            }
+            
+            /* ############################### */
+            
+            .map{
+                background-color: black;
+                height: 65%;
+                
+                float: left;
+            }
+            .skillset{
+                background-color: cornflowerblue;
+                height: 10%;
+                float: left;
+            }
+            .textarea{
+                background-color: crimson;
+                height: 25%;
+                float: left;
+            }
+
+            .skill1{
+                background-color: darkmagenta;
+                height: 100%;
+                float: left;
+            }
+            .skill2{
+                background-color: darkorange;
+                height: 100%;
+                float: left;
+            }
+            .skill3{
+                background-color: darkcyan;
+                height: 100%;
+                float: left;
+            }
+            .skill4{
+                background-color: darkolivegreen;
+                height: 100%;
+                float: left;
+            }
+            
+            /* ############################### */
+            
+            .event-photo{
+                background-color: chocolate;
+                height: 20%;
+                float: left;
+            }
+            .event-text{
+                background-color: chartreuse;
+                height: 45%;
+                float: left;
+            }
+            .minimap{
+                height: 35%;
+                background-color: dodgerblue;
+                float: left;
+            }
+            
+            
+            
+            .mapa-img{
+                height: 100%;
+                float: left;
+                display: none;
+            }
+            #player{
+                position: absolute;
+                left: 0;
+                bottom: 0;
+            }
+
+            #map{
+                background-image: url("assets/mapa.png");
+                background-size: 100%;
+                height: 100%;
+                position: absolute;
+            }
+
+            #minimapTable{
+                height: 100%;
+                width: 100%;
+            }
+
+            #minimapTable td{
+                width: 10%;
+                text-align: center;
+            }
+
+            
+            .selector{
+                height: 100%;
+                display: block;
+            }
+            .class{
+                width: 25%;
+                height: 100%;
+                float: left;
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+            }
+            .class:hover{
+                opacity: 1;
+            }
+            .class1{
+                background-image: url(assets/paladyn.png);
+            }
+            .class2{
+                background-image: url(assets/soldier.png);
+            }
+            .class3{
+                background-image: url(assets/archer_g.gif);
+            }
+            .class4{
+                background-image: url(assets/doc.jpg);
+            }
+            .item-fade{
+                opacity: 0.25;
+                transition: opacity 0.3s;
+                -webkit-transition: opacity 0.3s;
+            }
+            
+            .item{
+                width: 25%;
+                height: 20%;
+                margin: 8px;
+                background-color: darkcyan;
+                float: left;
+               
+            }
