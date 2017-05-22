@@ -1,10 +1,234 @@
-<!doctype html5>
+<!DOCTYPE html>
 <html lang="pl">
-<head>
-	<meta charset="UTF-8"/>
-	<title>GRA</title>
-</head>
-<body>
-	<script src="script.js"></script>
-</body>
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<link rel="stylesheet" href="styles/statistics.css"/>
+		
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+
+
+		<meta charset="UTF-8"/>
+		<title></title>
+
+		<style>
+            div{
+                padding: 0 !important;
+            }
+            html,body{
+                margin: 0;
+                padding: 0;
+                max-height: 600px;
+                color: black;
+                -webkit-font-smoothing: antialiased;
+            }
+            .container-fluid{
+                min-width: 800px;
+                max-width: 1920px;
+            }
+            .side-panel{
+                background-color: grey;
+                min-height: 500px;
+                max-height: 1080px;
+                height: 100vh;
+                float: left;
+            }
+            .main-panel{
+                background-color: lime;
+                min-height: 500px;
+                max-height: 1080px;
+                height: 100vh;
+                float: left;
+            }
+            .event-panel{
+                background-color: bisque;
+                min-height: 500px;
+                max-height: 1080px;
+                height: 100vh;
+                float: left;
+            }
+            
+            /* ############################### */
+            
+            .profession{
+                background-color: aqua;
+                height: 40%;
+            }
+            .stats{
+                background-color: green;
+                height: 40%;
+            }
+            .inventory{
+                background-color: blue;
+                height: 20%;
+            }
+            
+            /* ############################### */
+            
+            .map{
+                background-color: black;
+                height: 65%;
+                
+                float: left;
+            }
+            .skillset{
+                background-color: cornflowerblue;
+                height: 10%;
+                float: left;
+            }
+            .textarea{
+                background-color: crimson;
+                height: 25%;
+                float: left;
+            }
+
+            .skill1{
+                background-color: darkmagenta;
+                height: 100%;
+                float: left;
+            }
+            .skill2{
+                background-color: darkorange;
+                height: 100%;
+                float: left;
+            }
+            .skill3{
+                background-color: darkcyan;
+                height: 100%;
+                float: left;
+            }
+            .skill4{
+                background-color: darkolivegreen;
+                height: 100%;
+                float: left;
+            }
+            
+            /* ############################### */
+            
+            .event-photo{
+                background-color: chocolate;
+                height: 20%;
+                float: left;
+            }
+            .event-text{
+                background-color: chartreuse;
+                height: 45%;
+                float: left;
+            }
+            .minimap{
+                height: 35%;
+                background-color: dodgerblue;
+                float: left;
+            }
+            
+            
+            
+            .mapa-img{
+                height: 100%;
+                float: left;
+            }
+            #player{
+                position: absolute;
+                left: 0;
+                bottom: 0;
+            }
+
+            #map{
+                background-image: url("assets/mapa.png");
+                background-size: 100%;
+                height: 100%;
+                position: absolute;
+            }
+
+            #minimapTable{
+                height: 100%;
+                width: 100%;
+            }
+
+            #minimapTable td{
+                width: 10%;
+                text-align: center;
+            }
+
+		</style>
+	</head>
+	<body>
+
+        <div class="container-fluid">
+            <div class="col-3 side-panel">
+                <div class="col profession">
+                    Profesja
+                </div>
+                <div class="col stats">
+                    
+					<table>
+						<tr>    
+							<th colspan="2" class="text-center">Statystyki</th>
+							
+						</tr>
+						<tr>
+							<td>Punkty życia:</td>
+							<td id="hp"></td>
+						</tr>
+						<tr>
+							<td>Siła</td>
+							<td id="power"></td>
+						</tr>
+						<tr>
+							<td>Atak</td>
+							<td id="attack"></td>
+						</tr>
+						<tr>
+							<td>Wytrzymałość</td>
+							<td id="strength"></td>
+						</tr>
+						<tr>
+							<td>Skill</td>
+							<td id="skill"></td>
+						</tr>
+						<tr>
+							<td>Pancerz</td>
+							<td id="armor"></td>
+						</tr>
+					</table>
+					
+                </div>
+                <div class="col inventory">
+                    Ekwipunek
+                </div>
+            </div>
+            <!-- ############################### -->
+            <div class="col-7 main-panel">
+                    <div class="col map text-center" id="map-div">
+                        <div class="mapa-img" id="map">
+                            <img src="assets/player.jpg" id="player" />
+                        </div>
+                    </div>
+                    
+                    <div class="col skillset">
+                        <div class="col-3 skill1">Skill1</div>
+                        <div class="col-3 skill2">Skill2</div>
+                        <div class="col-3 skill3">Skill3</div>
+                        <div class="col-3 skill4">Skill4</div>
+                    </div>
+                    <div class="col textarea">Text
+                    </div>
+            </div>
+            <!-- ############################### -->
+            <div class="col-2 event-panel">
+                <div class="col event-photo justify">Event: photo</div>
+                <div class="col event-text justify">Event: text</div>
+                <div class="col minimap" id="minimap"></div>
+            </div>
+        </div>
+
+        <script src="objects.js"></script>
+        <script src="script.js"></script>
+        <script src="player-statistics.js"></script>
+	</body>
 </html>
