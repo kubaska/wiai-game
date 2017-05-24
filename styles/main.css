@@ -155,16 +155,16 @@
                 opacity: 1;
             }
             .class1{
-                background-image: url(assets/paladyn.png);
+                background-image: url(assets/characters/paladyn.png);
             }
             .class2{
-                background-image: url(assets/soldier.png);
+                background-image: url(assets/characters/soldier.png);
             }
             .class3{
-                background-image: url(assets/archer_g.gif);
+                background-image: url(assets/characters/archer_g.gif);
             }
             .class4{
-                background-image: url(assets/doc.jpg);
+                background-image: url(assets/characters/doc.jpg);
             }
             .item-fade{
                 opacity: 0.25;
