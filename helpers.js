@@ -166,7 +166,6 @@ var editStats = {
 function setPlayerAttrib(champion){
     document.getElementById("selector").style.display = "none";
     document.getElementById("map").style.display = "block";
-    console.log("1");
     // Funkcja ustawia statystyki każdej z postaci
     // ...
     // Do ustalenia statystyk...

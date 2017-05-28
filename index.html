@@ -9,8 +9,9 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 
-		<link rel="stylesheet" href="styles/main.css"/>
-		<link rel="stylesheet" href="styles/statistics.css"/>
+        <link rel="stylesheet" href="styles/main.css"/>
+        <link rel="stylesheet" href="styles/statistics.css"/>
+
 
 		<meta charset="UTF-8"/>
 		<title></title>
@@ -56,26 +57,16 @@
 					</table>
 					
                 </div>
-                <div class="col inventory">
-                    <div class="col item item1"></div>
-                    <div class="col item item2"></div>
-                    <div class="col item item3"></div>
-                    <div class="col item item4"></div>
-                    <div class="col item item5"></div>
-                    <div class="col item item6"></div>
-                    <div class="col item item7"></div>
-                    <div class="col item item8"></div>
-                    <div class="col item item9"></div>
-                </div>
+                <div class="col inventory" id="inventory"></div>
             </div>
             <!-- ############################### -->
             <div class="col-7 main-panel">
                     <div class="col map text-center" id="map-div">
                         <div class="col text-center selector" id="selector">
-                            <div class="col text-center class item-fade class1" id="class1"></div>
-                            <div class="col text-center class class2 item-fade" id="class2"></div>
-                            <div class="col text-center class class3 item-fade" id="class3"></div>
-                            <div class="col text-center class class4 item-fade" id="class4"></div>
+                            <div class="col-3 text-center class class1 item-fade" id="class1"></div>
+                            <div class="col-3 text-center class class2 item-fade" id="class2"></div>
+                            <div class="col-3 text-center class class3 item-fade" id="class3"></div>
+                            <div class="col-3 text-center class class4 item-fade" id="class4"></div>
                         </div>
                         
                         <div class="mapa-img" id="map">
@@ -89,7 +80,8 @@
                         <div class="col-3 skill3">Skill3</div>
                         <div class="col-3 skill4">Skill4</div>
                     </div>
-                    <div class="col textarea">Text
+                    <div class="col textarea">
+                        <div class="itemHover" id="itemHover"></div>
                     </div>
             </div>
             <!-- ############################### -->
@@ -100,9 +92,10 @@
             </div>
         </div>
 
-        <script src="helpers.js"></script>
         <script src="characters.js"></script>
+        <script src="helpers.js"></script>
         <script src="events.js"></script>
+        <script src="items.js"></script>
         
         <script src="loader.js"></script>
 	</body>
