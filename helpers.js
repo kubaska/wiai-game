@@ -17,18 +17,7 @@ var map = {
     }
 }
 
-const matrix = [
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 1, 1, 1, 0, 1, 0, 1, 1, 0],
-    [0, 1, 1, 1, 0, 1, 1, 1, 1, 0],
-    [0, 1, 1, 1, 0, 0, 0, 0, 1, 0],
-    [0, 0, 0, 1, 0, 1, 1, 1, 1, 0],
-    [0, 1, 1, 1, 1, 1, 1, 1, 1, 0],
-    [0, 1, 1, 1, 1, 1, 0, 0, 0, 0],
-    [0, 1, 1, 1, 1, 1, 0, 0, 0, 0],
-    [1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
-    [1, 1, 0, 0, 0, 0, 0, 0, 0, 0]
-];
+var matrix = maps[0];
 
 var minimap = {
     css: document.querySelector("#minimap"),
@@ -49,10 +38,14 @@ var minimap = {
         for (var i=0; i<matrix.length; i++) {
             for (var j=0; j<matrix[i].length; j++) {
                 var pos = matrix[i][j];
-                if (player.currentY-1 === i && player.currentX-1 === j) pos++;
+                if (player.currentY-1 === i && player.currentX-1 === j) pos = 2;
                 if (pos === 0) document.querySelector('#m'+(j+1 + i*10)).style.backgroundColor = 'black';
                 else if (pos === 1) document.querySelector('#m'+(j+1 + i*10)).style.backgroundColor = 'white';
                 else if (pos === 2) document.querySelector('#m'+(j+1 + i*10)).style.backgroundColor = 'red';
+                else if (pos === 3 || pos === 4) {
+                    console.log("working");
+                    document.querySelector('#m'+(j+1 + i*10)).style.backgroundColor = 'blue'
+                }
             }
         }
     }
@@ -116,6 +109,8 @@ var player = {
             }
             break;
         }
+        if (pos === 3) matrix = maps[1];
+        if (pos === 4) matrix = maps[0];
         return 1;
     },
     move: e => {
@@ -149,9 +144,9 @@ var player = {
 
 var characterList = {
     paladin: document.querySelector('#class1'),
-    soldier: document.querySelector('#class2'),
+    warrior: document.querySelector('#class2'),
     archer: document.querySelector('#class3'),
-    necromant: document.querySelector('#class4')
+    necromancer: document.querySelector('#class4')
 }
 
 var editStats = {
@@ -177,6 +172,31 @@ function setPlayerAttrib(champion){
             editStats.resistance.innerHTML = basePaladin.dexterity;
             editStats.skill.innerHTML = basePaladin.mana();
             editStats.armor.innerHTML = basePaladin.hp();
+        break;
+        case "archer":
+            editStats.hp.innerHTML = baseArcher.hp();
+            editStats.strength.innerHTML = baseArcher.strength;
+            editStats.attack.innerHTML = baseArcher.attack();
+            editStats.resistance.innerHTML = baseArcher.dexterity;
+            editStats.skill.innerHTML = baseArcher.mana();
+            editStats.armor.innerHTML = baseArcher.hp();
+        break;
+        case "necromancer":
+            editStats.hp.innerHTML = baseNecromancer.hp();
+            editStats.strength.innerHTML = baseNecromancer.strength;
+            editStats.attack.innerHTML = baseNecromancer.attack();
+            editStats.resistance.innerHTML = baseNecromancer.dexterity;
+            editStats.skill.innerHTML = baseNecromancer.mana();
+            editStats.armor.innerHTML = baseNecromancer.hp();
+        break;
+        case "warrior":
+            editStats.hp.innerHTML = baseWarrior.hp();
+            editStats.strength.innerHTML = baseWarrior.strength;
+            editStats.attack.innerHTML = baseWarrior.attack();
+            editStats.resistance.innerHTML = baseWarrior.dexterity;
+            editStats.skill.innerHTML = baseWarrior.mana();
+            editStats.armor.innerHTML = baseWarrior.hp();
+        break;
     }
     // TODO
 }

@@ -25,9 +25,9 @@ document.addEventListener('keyup', e => { player.move(e) });
 
 
 characterList.paladin.onclick = () => { setPlayerAttrib("paladin"); addItem(itemsList.healthPotion); }
-characterList.soldier.onclick = () => { setPlayerAttrib("soldier"); addItem(itemsList.healthPotion); }
+characterList.warrior.onclick = () => { setPlayerAttrib("warrior"); addItem(itemsList.healthPotion); }
 characterList.archer.onclick = () => { setPlayerAttrib("archer"); addItem(itemsList.healthPotion); addItem(itemsList.m1911); }
-characterList.necromant.onclick = () => { setPlayerAttrib("necromant"); }
+characterList.necromancer.onclick = () => { setPlayerAttrib("necromancer"); addItem(itemsList.healthPotion);}
 
 
 
