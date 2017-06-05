@@ -72,6 +72,7 @@ html,body{
     height: 25%;
     float: left;
     overflow-y: scroll;
+    position: relative;
 }
 
 .skill1{
@@ -186,7 +187,7 @@ html,body{
 
 .itemHover{
     display: none;
-    position: absolute;
+    position: relative;
     background-color: darkred;
     color: aqua;
     height: 75%;
@@ -200,4 +201,6 @@ span{
 .item:hover .itemHover{
     display: block;
 }
-
+.text{
+    position: relative;
+}

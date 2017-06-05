@@ -1,6 +1,6 @@
 var text = [];
 var textBuilder;
-var cssTextarea = document.querySelector(".textarea")
+var cssTextarea = document.querySelector(".text")
 
 function addText(message) {
     if (text.length < 50) {
