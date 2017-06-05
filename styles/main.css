@@ -71,6 +71,7 @@ html,body{
     background-color: crimson;
     height: 25%;
     float: left;
+    overflow-y: scroll;
 }
 
 .skill1{
