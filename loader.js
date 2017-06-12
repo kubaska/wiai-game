@@ -4,6 +4,7 @@ function update() {
     
     player.set();
     player.getPos(player.css);
+
     minimap.set();
 }
 

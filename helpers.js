@@ -21,6 +21,8 @@ var matrix = maps[0];
 
 var minimap = {
     css: document.querySelector("#minimap"),
+    safeX: null,
+    safeY: null,
     create: () => {
         var tableHTML;
         tableHTML = '<table id="minimapTable">\n';
@@ -33,6 +35,9 @@ var minimap = {
         }
         tableHTML += '</table>';
         minimap.css.innerHTML = tableHTML;
+
+        minimap.getSafeSpot();
+        minimap.switch(minimap.safeX, minimap.safeY);
     },
     set: () => {
         for (var i=0; i<matrix.length; i++) {
@@ -40,11 +45,26 @@ var minimap = {
                 var pos = matrix[i][j];
                 if (player.currentY-1 === i && player.currentX-1 === j) pos = 2;
                 if (pos === 0) document.querySelector('#m'+(j+1 + i*10)).style.backgroundColor = 'black';
-                else if (pos === 1) document.querySelector('#m'+(j+1 + i*10)).style.backgroundColor = 'white';
+                else if (pos === 1 || pos === 10) document.querySelector('#m'+(j+1 + i*10)).style.backgroundColor = 'white';
                 else if (pos === 2) document.querySelector('#m'+(j+1 + i*10)).style.backgroundColor = 'red';
                 else if (pos === 3 || pos === 4) {
-                    console.log("working");
                     document.querySelector('#m'+(j+1 + i*10)).style.backgroundColor = 'blue'
+                }
+            }
+        }
+    },
+    switch: (x,y) => {
+        player.currentX = x+1;
+        player.currentY = y+1;
+        player.css.style.left = (player.currentX-1) * player.edge + "px";
+        player.css.style.bottom = (10-player.currentY) * player.edge + "px";
+    },
+    getSafeSpot: () => {
+        for (var i=0; i<matrix.length; i++) {
+            for (var j=0; j<matrix[i].length; j++) {
+                if (matrix[i][j] === 10) {
+                    minimap.safeX = j;
+                    minimap.safeY = i;
                 }
             }
         }
@@ -58,13 +78,14 @@ var player = {
     resistance: 0,
     skill: 0,
     armor: 0,
+    isAlive: false,
     // ...
     css: document.querySelector('#player'),
     edge: map_div.offsetHeight/10,
     currentLeft: null,
     currentBottom: null,
-    currentX: 1,
-    currentY: 10,
+    currentX: null,
+    currentY: null,
     getPos: css => {
         var style = window.getComputedStyle(css),
             left = style.getPropertyValue('left'),
@@ -80,13 +101,17 @@ var player = {
     resize: () => {
         if (map_div.offsetWidth > map_div.offsetHeight) player.edge = map_div.offsetHeight/10;
         else player.edge = map_div.offsetWidth/10;
-        player.css.style.left = 0;
-        player.css.style.bottom = 0;
-        player.currentX = 1;
-        player.currentY = 10;
+        minimap.switch(player.currentX-1, player.currentY-1);
     },
     check: key => {
         var pos = matrix[player.currentY-1][player.currentX-1];
+        if (pos === 3 || pos === 4) {
+            if (pos === 3) matrix = maps[1];
+            else if (pos === 4) matrix = maps[0];
+            minimap.getSafeSpot();
+            minimap.switch(minimap.safeX, minimap.safeY);
+            return 2;
+        }
         switch(key) {
             case 37: if (pos === 0) {
                 player.currentX++;
@@ -109,34 +134,34 @@ var player = {
             }
             break;
         }
-        if (pos === 3) matrix = maps[1];
-        if (pos === 4) matrix = maps[0];
         return 1;
     },
     move: e => {
         player.getPos(player.css);
 
-        switch(e.keyCode) {
-            case 37: if (player.currentLeft !== 0) {
-                player.currentX--;
-                if (player.check(e.keyCode)) player.css.style.left = player.currentLeft-player.edge + "px";
+        if (player.isAlive) {
+            switch(e.keyCode) {
+                case 37: if (player.currentLeft !== 0) {
+                    player.currentX--;
+                    if (player.check(e.keyCode) == 1) player.css.style.left = player.currentLeft-player.edge + "px";
+                }
+                break;
+                case 39: if (player.currentLeft !== map.edge-player.edge) {
+                    player.currentX++;
+                    if (player.check(e.keyCode) == 1) player.css.style.left = player.currentLeft+player.edge + "px";
+                }
+                break;
+                case 38: if (player.currentBottom !== map.edge-player.edge) {
+                    player.currentY--;
+                    if (player.check(e.keyCode) == 1) player.css.style.bottom = player.currentBottom+player.edge + "px";
+                }
+                break;
+                case 40: if (player.currentBottom !== 0) {
+                    player.currentY++;
+                    if (player.check(e.keyCode) == 1) player.css.style.bottom = player.currentBottom-player.edge + "px";
+                }
+                break;
             }
-            break;
-            case 39: if (player.currentLeft !== map.edge-player.edge) {
-                player.currentX++;
-                if (player.check(e.keyCode)) player.css.style.left = player.currentLeft+player.edge + "px";
-            }
-            break;
-            case 38: if (player.currentBottom !== map.edge-player.edge) {
-                player.currentY--;
-                if (player.check(e.keyCode)) player.css.style.bottom = player.currentBottom+player.edge + "px";
-            }
-            break;
-            case 40: if (player.currentBottom !== 0) {
-                player.currentY++;
-                if (player.check(e.keyCode)) player.css.style.bottom = player.currentBottom-player.edge + "px";
-            }
-            break;
         }
         minimap.set();
     }
@@ -172,7 +197,14 @@ function setPlayerAttrib(champion){
             editStats.resistance.innerHTML = basePaladin.dexterity;
             editStats.skill.innerHTML = basePaladin.mana();
             editStats.armor.innerHTML = basePaladin.hp();
-        break;
+            
+            player.hp = basePaladin.hp();
+            player.strength = basePaladin.strength;
+            player.attack = basePaladin.attack();
+            player.resistance = basePaladin.dexterity;
+            player.skill = basePaladin.mana();
+            player.armor = basePaladin.hp();
+            break;
         case "archer":
             editStats.hp.innerHTML = baseArcher.hp();
             editStats.strength.innerHTML = baseArcher.strength;
@@ -180,7 +212,14 @@ function setPlayerAttrib(champion){
             editStats.resistance.innerHTML = baseArcher.dexterity;
             editStats.skill.innerHTML = baseArcher.mana();
             editStats.armor.innerHTML = baseArcher.hp();
-        break;
+            
+            player.hp = baseArcher.hp();
+            player.strength = baseArcher.strength;
+            player.attack = baseArcher.attack();
+            player.resistance = baseArcher.dexterity;
+            player.skill = baseArcher.mana();
+            player.armor = baseArcher.hp();
+            break;
         case "necromancer":
             editStats.hp.innerHTML = baseNecromancer.hp();
             editStats.strength.innerHTML = baseNecromancer.strength;
@@ -188,7 +227,14 @@ function setPlayerAttrib(champion){
             editStats.resistance.innerHTML = baseNecromancer.dexterity;
             editStats.skill.innerHTML = baseNecromancer.mana();
             editStats.armor.innerHTML = baseNecromancer.hp();
-        break;
+            
+            player.hp = baseNecromancer.hp();
+            player.strength = baseNecromancer.strength;
+            player.attack = baseNecromancer.attack();
+            player.resistance = baseNecromancer.dexterity;
+            player.skill = baseNecromancer.mana();
+            player.armor = baseNecromancer.hp();
+            break;
         case "warrior":
             editStats.hp.innerHTML = baseWarrior.hp();
             editStats.strength.innerHTML = baseWarrior.strength;
@@ -196,7 +242,15 @@ function setPlayerAttrib(champion){
             editStats.resistance.innerHTML = baseWarrior.dexterity;
             editStats.skill.innerHTML = baseWarrior.mana();
             editStats.armor.innerHTML = baseWarrior.hp();
-        break;
+            
+            player.hp = baseWarrior.hp();
+            player.strength = baseWarrior.strength;
+            player.attack = baseWarrior.attack();
+            player.resistance = baseWarrior.dexterity;
+            player.skill = baseWarrior.mana();
+            player.armor = baseWarrior.hp();
+            break;
     }
+    player.isAlive = true;
     // TODO
 }
