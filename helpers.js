@@ -74,10 +74,11 @@ var minimap = {
 var player = {
     hp: 0,
     strength: 0,
-    attack: 0,
+    //attack: 0,
     resistance: 0,
     skill: 0,
-    armor: 0,
+    dodge: 0,
+    //armor: 0,
     isAlive: false,
     // ...
     css: document.querySelector('#player'),
@@ -177,10 +178,9 @@ var characterList = {
 var editStats = {
     hp: document.querySelector('#hp'),
 	strength: document.querySelector("#strength"),
-	attack: document.querySelector("#attack"),
+    skill: document.querySelector("#skill"),
 	resistance: document.querySelector("#resistance"),
-	skill: document.querySelector("#skill"),
-	armor: document.querySelector("#armor")
+	dodge: document.querySelector("#dodge")
 }
 
 function setPlayerAttrib(champion){
@@ -191,64 +191,28 @@ function setPlayerAttrib(champion){
     // Do ustalenia statystyk...
     switch (champion){
         case "paladin":
-            editStats.hp.innerHTML = basePaladin.hp();
-            editStats.strength.innerHTML = basePaladin.strength;
-            editStats.attack.innerHTML = basePaladin.attack();
-            editStats.resistance.innerHTML = basePaladin.dexterity;
-            editStats.skill.innerHTML = basePaladin.mana();
-            editStats.armor.innerHTML = basePaladin.hp();
-            
-            player.hp = basePaladin.hp();
+            player.hp = basePaladin.hp;
             player.strength = basePaladin.strength;
-            player.attack = basePaladin.attack();
-            player.resistance = basePaladin.dexterity;
-            player.skill = basePaladin.mana();
-            player.armor = basePaladin.hp();
+            player.skill = basePaladin.skill;
+            player.dodge = basePaladin.dodge;
             break;
         case "archer":
-            editStats.hp.innerHTML = baseArcher.hp();
-            editStats.strength.innerHTML = baseArcher.strength;
-            editStats.attack.innerHTML = baseArcher.attack();
-            editStats.resistance.innerHTML = baseArcher.dexterity;
-            editStats.skill.innerHTML = baseArcher.mana();
-            editStats.armor.innerHTML = baseArcher.hp();
-            
-            player.hp = baseArcher.hp();
+            player.hp = baseArcher.hp;
             player.strength = baseArcher.strength;
-            player.attack = baseArcher.attack();
-            player.resistance = baseArcher.dexterity;
-            player.skill = baseArcher.mana();
-            player.armor = baseArcher.hp();
+            player.skill = baseArcher.skill;
+            player.dodge = baseArcher.dodge;
             break;
         case "necromancer":
-            editStats.hp.innerHTML = baseNecromancer.hp();
-            editStats.strength.innerHTML = baseNecromancer.strength;
-            editStats.attack.innerHTML = baseNecromancer.attack();
-            editStats.resistance.innerHTML = baseNecromancer.dexterity;
-            editStats.skill.innerHTML = baseNecromancer.mana();
-            editStats.armor.innerHTML = baseNecromancer.hp();
-            
-            player.hp = baseNecromancer.hp();
+            player.hp = baseNecromancer.hp;
             player.strength = baseNecromancer.strength;
-            player.attack = baseNecromancer.attack();
-            player.resistance = baseNecromancer.dexterity;
-            player.skill = baseNecromancer.mana();
-            player.armor = baseNecromancer.hp();
+            player.skill = baseNecromancer.skill;
+            player.dodge = baseNecromancer.dodge;
             break;
         case "warrior":
-            editStats.hp.innerHTML = baseWarrior.hp();
-            editStats.strength.innerHTML = baseWarrior.strength;
-            editStats.attack.innerHTML = baseWarrior.attack();
-            editStats.resistance.innerHTML = baseWarrior.dexterity;
-            editStats.skill.innerHTML = baseWarrior.mana();
-            editStats.armor.innerHTML = baseWarrior.hp();
-            
-            player.hp = baseWarrior.hp();
+            player.hp = baseWarrior.hp;
             player.strength = baseWarrior.strength;
-            player.attack = baseWarrior.attack();
-            player.resistance = baseWarrior.dexterity;
-            player.skill = baseWarrior.mana();
-            player.armor = baseWarrior.hp();
+            player.skill = baseWarrior.skill;
+            player.dodge = baseWarrior.dodge;
             break;
     }
     player.isAlive = true;

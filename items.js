@@ -1,18 +1,36 @@
 var itemsList = {
     healthPotion: {name: "Health Potion",
-                   image: "assets/items/potion_1.png",
-                   consumable: true,
-                   hp: 20},
+                image: "assets/items/potion_1.png",
+                consumable: true,
+                hp: 20},
     
-    m1911: {name: "M1911",
-            image: "assets/items/m1911.png",
-            consumable: false,
-            attack: 40},
+    m1911:     {name: "M1911",
+                image: "assets/items/m1911.png",
+                consumable: false,
+                strength: 40},
 
-    armorTier1: {name: "Armor Tier 1",
+    
+    // --- Armor items ---
+    armorTier1: {name: "Armor Tier I",
                 image: "",
                 consumable: false,
-                resistance: 10}
+                resistance: 10},
+    armorTier2: {name: "Armor Tier II",
+                image: "",
+                consumable: false,
+                resistance: 20},
+    armorTier3: {name: "Armor Tier III",
+                image: "",
+                consumable: false,
+                resistance: 30},
+    armorTier4: {name: "Armor Tier IV",
+                image: "",
+                consumable: false,
+                resistance: 40},
+    armorTier5: {name: "Armor Tier V",
+                image: "",
+                consumable: false,
+                resistance: 50}
 };
 
 var userEQ = [];
@@ -31,7 +49,6 @@ function addItem(Item) {
     var position = pos + 1;
     
     if (document.querySelector(".item" + position) === null){
-        
         var _elem = document.createElement("div");
         _elem.className = "col-3 item item" + position;
         cssInventory.appendChild(_elem);
@@ -51,10 +68,8 @@ function addItem(Item) {
         var hoverManager = "";
         if (Item.hp !== undefined) { hoverManager += " HP: " + Item.hp; }
         if (Item.strength !== undefined) { hoverManager += " STR: " + Item.strength; }
-        if (Item.attack !== undefined) { hoverManager += " ATT: " + Item.attack; }
         if (Item.resistance !== undefined) { hoverManager += " RES: " + Item.resistance; }
         if (Item.skill !== undefined) { hoverManager += " SKI: " + Item.skill; }
-        if (Item.armor !== undefined) { hoverManager += " ARM: " + Item.armor; }
         cssItemHover.innerHTML = hoverManager;
     };
     cssItem.onmouseout = function () {
@@ -76,33 +91,30 @@ function addItem(Item) {
             statEdit(false, Item);
         }
     };
-    
-    //Do uzupełnienia
 }
 
 function removeItem(pos, isConsumable) {
     var cssItem = document.querySelector(".item" + pos);
     userEQ[(pos - 1)] = "";
     cssItem.style.display = "none";
-    if(isConsumable) {
-        // TODO
-    }
 }
 
 function statEdit(change, Item) {
     if (change) {
         // add statistics
-        console.log(change);
         if (Item.hp !== undefined) { player.hp += Item.hp }
         if (Item.strength !== undefined) { player.strength += Item.strength }
-        if (Item.attack !== undefined) { player.attack += Item.attack }
         if (Item.resistance !== undefined) { player.resistance += Item.resistance }
         if (Item.skill !== undefined) { player.skill += Item.skill }
-        if (Item.armor !== undefined) { player.armor += Item.armor }
+        if (Item.dodge !== undefined) { player.dodge += Item.dodge }
     }
     else {
         // remove statistics
-        console.log(change);
+        if (Item.hp !== undefined) { player.hp -= Item.hp }
+        if (Item.strength !== undefined) { player.strength -= Item.strength }
+        if (Item.resistance !== undefined) { player.resistance -= Item.resistance }
+        if (Item.skill !== undefined) { player.skill -= Item.skill }
+        if (Item.dodge !== undefined) { player.dodge -= Item.dodge }
     }
     reloadStats();
 }
@@ -110,10 +122,9 @@ function statEdit(change, Item) {
 function reloadStats() {
     editStats.hp.innerHTML = player.hp;
     editStats.strength.innerHTML = player.strength;
-    editStats.attack.innerHTML = player.attack;
     editStats.resistance.innerHTML = player.resistance;
     editStats.skill.innerHTML = player.skill;
-    editStats.armor.innerHTML = player.hp();
+    editStats.dodge.innerHTML = player.dodge;
 }
 
 
