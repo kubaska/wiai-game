@@ -47,7 +47,7 @@ var minimap = {
                 if (pos === 0) document.querySelector('#m'+(j+1 + i*10)).style.backgroundColor = 'black';
                 else if (pos === 1 || pos === 10) document.querySelector('#m'+(j+1 + i*10)).style.backgroundColor = 'white';
                 else if (pos === 2) document.querySelector('#m'+(j+1 + i*10)).style.backgroundColor = 'red';
-                else if (pos === 3 || pos === 4) {
+                else if (pos.type === 'teleport') {
                     document.querySelector('#m'+(j+1 + i*10)).style.backgroundColor = 'blue'
                 }
             }
@@ -106,9 +106,8 @@ var player = {
     },
     check: key => {
         var pos = matrix[player.currentY-1][player.currentX-1];
-        if (pos === 3 || pos === 4) {
-            if (pos === 3) matrix = maps[1];
-            else if (pos === 4) matrix = maps[0];
+        if (pos.type === 'teleport') {
+            matrix = maps[pos.id];
             minimap.getSafeSpot();
             minimap.switch(minimap.safeX, minimap.safeY);
             return 2;
